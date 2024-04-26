@@ -1,0 +1,7 @@
+make input content persist
+add warning when user input is invalid
+make tests
+put placeholder numbers in the inputs?
+add blurb with explanation/directions
+style the page
+deploy the page

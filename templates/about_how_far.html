@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About How Far</title>
+</head>
+<body>
+    <h1>About How Far...?</h1>
+    <form action="/how_far" method="post">
+        <label for="so-far">How far have you gone up to this point? (For example, what page are you on in the book?)</label>
+        <br/>
+        <input id="so-far" name="so-far" type="number">
+        <br/><br/>
+        <label for="total">How far is there to go total? (For example, how many pages long is the book?)</label>
+        <br/>
+        <input id="total" name="total" type="number">
+        <br/><br/>
+        <input type="submit" value="About how far have I come?">
+    </form>
+    <p>{{qualifier}}{{nearest_simple_fraction}}</p>
+</body>
+</html>
