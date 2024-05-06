@@ -10,11 +10,11 @@
     <form action="/how_far" method="post">
         <label for="so-far">How far have you gone up to this point? (For example, what page are you on in the book?)</label>
         <br/>
-        <input id="so-far" name="so-far" type="number" value={{numerator}}>
+        <input id="so-far" name="so-far" type="number" value={{numerator}} required>
         <br/><br/>
         <label for="total">How far is there to go total? (For example, how many pages long is the book?)</label>
         <br/>
-        <input id="total" name="total" type="number" value="{{denominator}}">
+        <input id="total" name="total" type="number" value="{{denominator}}" required>
         <br/><br/>
         <input type="submit" value="About how far have I come?">
     </form>
