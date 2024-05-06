@@ -1,7 +1,9 @@
-make input content persist
+write a readme and github description
 add warning when user input is invalid
 make tests
 put placeholder numbers in the inputs?
 add blurb with explanation/directions
+add progress bar 
+add percent
 style the page
 deploy the page

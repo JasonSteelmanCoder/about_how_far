@@ -5,8 +5,10 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="Enter your numbers and submit to see about how far you have come")
+    queryNumerator = request.args.get('numerator', default=None)
+    queryDenominator = request.args.get('denominator', default=None)
     qualifier = request.args.get('qualifier', default="")
-    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier)
+    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator)
 
 @app.route("/how_far", methods=['POST'])
 def how_far():
@@ -39,7 +41,7 @@ def how_far():
         if fraction_obj["value"] == decimal:
             fraction = fraction_obj["fraction"]
             qualifier = "exactly "
-            return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier))
+            return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator))
         if fraction_obj["value"] > decimal:
             i_of_bigger_fraction = i
             bigger_fraction_obj = fraction_obj
@@ -55,6 +57,6 @@ def how_far():
         fraction = simple_fractions[i_of_bigger_fraction - 1]["fraction"]
         qualifier = "a little more than "
 
-    return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier))
+    return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator))
 
 app.run(host="0.0.0.0", port=80)
