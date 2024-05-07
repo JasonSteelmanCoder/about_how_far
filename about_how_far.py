@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="Enter your numbers and submit to see about how far you have come")
+    nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="Enter your numbers and submit to see about how far you've come")
     queryNumerator = request.args.get('numerator', default=None)
     queryDenominator = request.args.get('denominator', default=None)
     qualifier = request.args.get('qualifier', default="")
@@ -21,7 +21,8 @@ def how_far():
 
     simple_fractions = [
         {"fraction": "0", "value": 0}, 
-        {"fraction": "1/10", "value": 1/10}, 
+        {"fraction": "1/10", "value": 1/10},
+        {"fraction": "1/6", "value": 1/6}, 
         {"fraction": "1/5", "value": 1/5}, 
         {"fraction": "1/4", "value": 1/4}, 
         {"fraction": "3/10", "value": 3/10}, 
@@ -32,7 +33,8 @@ def how_far():
         {"fraction": "2/3", "value": 2/3}, 
         {"fraction": "7/10", "value": 7/10}, 
         {"fraction": "3/4", "value": 3/4}, 
-        {"fraction": "4/5", "value": 4/5}, 
+        {"fraction": "4/5", "value": 4/5},
+        {"fraction": "5/6", "value": 5/6}, 
         {"fraction": "9/10", "value": 9/10}, 
         {"fraction": "1", "value": 1}, 
     ]

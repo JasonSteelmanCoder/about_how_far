@@ -1,3 +1,4 @@
+Add 6ths
 write a readme and github description
 add blurb with explanation/directions
 add percent to progress bar
