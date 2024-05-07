@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About How Far</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        :root {
+            --numerator: {{ numerator }};
+            --denominator: {{ denominator }};
+        }
+    </style>
 </head>
 <body>
     <h1>About How Far...?</h1>
@@ -19,5 +26,8 @@
         <input type="submit" value="About how far have I come?">
     </form>
     <p>{{qualifier}}{{nearest_simple_fraction}}</p>
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
 </body>
 </html>

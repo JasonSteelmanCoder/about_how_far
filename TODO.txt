@@ -1,7 +1,7 @@
 write a readme and github description
-make tests
 add blurb with explanation/directions
-add progress bar 
-add percent
+add percent to progress bar
+add fraction markers to progress bar
 style the page
+make tests
 deploy the page
