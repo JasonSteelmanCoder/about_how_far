@@ -9,8 +9,14 @@
 
 .progress-fill {
     position: absolute;
-    width: calc((var(--numerator) / var(--denominator)) * 100%);
+    width: calc(var(--numerator) / var(--denominator) * 100%);
     height: 100%;
     background-color: darkcyan;
     z-index: 1;
+}
+
+.percent-tag {
+    position: absolute;
+    left: 105%;
+    top: -10px;
 }

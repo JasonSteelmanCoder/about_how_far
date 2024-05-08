@@ -9,6 +9,7 @@
         :root {
             --numerator: {{ numerator }};
             --denominator: {{ denominator }};
+            --percent: {{ percent }};
         }
     </style>
 </head>
@@ -27,7 +28,9 @@
     </form>
     <p>{{qualifier}}{{nearest_simple_fraction}}</p>
     <div class="progress-bar">
-        <div class="progress-fill"></div>
+        <div class="progress-fill">
+            <p class="percent-tag">{{percent}}%</p>
+        </div>
     </div>
 </body>
 </html>
