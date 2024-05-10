@@ -1,6 +1,7 @@
+notify user when they have put in a higher numerator than denominator
 add directions blurb at the top
+write a readme and github description
+
 hide percent tag on initial load
 fix percent-tag behavior when marking high percentages
-write a readme and github description
-make tests
 deploy the page

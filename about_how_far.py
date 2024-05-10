@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+# Called on initial load
 @app.route("/")
 def index():
     nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="")
@@ -24,12 +25,14 @@ def index():
 
     return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue, fraction_marker=fraction_marker, answer=answer)
 
+# Called when a user submits the form. Reloads the same page, but with new query string.
 @app.route("/how_far", methods=['POST'])
 def how_far():
     numerator = request.form["so-far"]
     denominator = request.form["total"]
     decimal = int(numerator) / int(denominator)
 
+    # check that decimal is between 0 and 1
     if decimal > 1 or decimal < 0:
         return redirect(url_for("index"))
 
