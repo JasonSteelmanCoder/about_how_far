@@ -22,7 +22,7 @@ def how_far():
         return redirect(url_for("index"))
 
     simple_fractions = [
-        {"fraction": "0", "value": 0}, 
+        {"fraction": "0%", "value": 0}, 
         {"fraction": "1/10", "value": 1/10},
         {"fraction": "1/6", "value": 1/6}, 
         {"fraction": "1/5", "value": 1/5}, 
@@ -38,7 +38,7 @@ def how_far():
         {"fraction": "4/5", "value": 4/5},
         {"fraction": "5/6", "value": 5/6}, 
         {"fraction": "9/10", "value": 9/10}, 
-        {"fraction": "1", "value": 1}, 
+        {"fraction": "all", "value": 1}, 
     ]
 
     # Go through the simple fractions from low to high.

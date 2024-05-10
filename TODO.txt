@@ -1,5 +1,4 @@
 fix bug around not serving without query string parameters
-fix wording for 0% and 100%
 fix percent-tag behavior when marking high percentages
 write a readme and github description
 add blurb with explanation/directions
