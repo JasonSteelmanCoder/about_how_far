@@ -27,7 +27,7 @@
         <br/><br/>
         <input type="submit" value="About how far have I come?">
     </form>
-    <p class="answer">You've come <b>{{qualifier}}{{nearest_simple_fraction}}</b> of the way!</p>
+    {{answer | safe}}
     <div class="progress-bar">
         <div class="progress-fill">
             <p class="percent-tag">{{percent}}%</p>

@@ -1,7 +1,6 @@
-fix wording on initial load
+add directions blurb at the top
 hide percent tag on initial load
 fix percent-tag behavior when marking high percentages
 write a readme and github description
-add blurb with explanation/directions
 make tests
 deploy the page

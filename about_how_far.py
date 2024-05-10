@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="Enter your numbers and submit to see about how far you've come")
+    nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="")
     queryNumerator = request.args.get('numerator', default=None)
     queryDenominator = request.args.get('denominator', default=None)
     if queryNumerator and queryDenominator:
@@ -17,10 +17,12 @@ def index():
     # Some elements only render if there are query strings in the URL
     if queryNumerator:
         fraction_marker = '<div class="fraction-marker">|</div>'
+        answer = f'<p class="answer">You\'ve come <b>{qualifier}{nearest_simple_fraction}</b> of the way!</p>'
     else: 
         fraction_marker = ""
+        answer = "<br><br><br>"
 
-    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue, fraction_marker = fraction_marker)
+    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue, fraction_marker=fraction_marker, answer=answer)
 
 @app.route("/how_far", methods=['POST'])
 def how_far():
