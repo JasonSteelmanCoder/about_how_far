@@ -7,7 +7,10 @@ def index():
     nearest_simple_fraction = request.args.get('nearest_simple_fraction', default="Enter your numbers and submit to see about how far you've come")
     queryNumerator = request.args.get('numerator', default=None)
     queryDenominator = request.args.get('denominator', default=None)
-    queryPercent = str(round((int(queryNumerator) / int(queryDenominator)) * 100))
+    if queryNumerator and queryDenominator:
+        queryPercent = str(round((int(queryNumerator) / int(queryDenominator)) * 100))
+    else:
+        queryPercent = 0
     queryFractionValue = request.args.get('fraction_value', default=None)
     qualifier = request.args.get('qualifier', default="")
     return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue)

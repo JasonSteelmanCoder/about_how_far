@@ -1,4 +1,5 @@
-fix bug around not serving without query string parameters
+fix wording on initial load
+hide fraction marker and percent tag on initial load
 fix percent-tag behavior when marking high percentages
 write a readme and github description
 add blurb with explanation/directions
