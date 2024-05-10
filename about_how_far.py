@@ -41,20 +41,25 @@ def how_far():
         {"fraction": "1", "value": 1}, 
     ]
 
+    # Go through the simple fractions from low to high.
     for i, fraction_obj in enumerate(simple_fractions):
+        # If the next fraction has exactly the same value as the decimal, rerender the page with "exactly" and the fraction
         if fraction_obj["value"] == decimal:
             fraction = fraction_obj["fraction"]
             fraction_value = fraction_obj["value"]
             qualifier = "exactly "
             return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator, fraction_value=fraction_value))
+        # If the next fraction is higher than the decimal value, remember which one it is and stop iterating
         if fraction_obj["value"] > decimal:
             i_of_bigger_fraction = i
             bigger_fraction_obj = fraction_obj
             break
 
+    # Find distances to the two nearest fractions to the decimal value
     distance_to_bigger = bigger_fraction_obj["value"] - decimal
     distance_to_smaller = decimal - simple_fractions[i_of_bigger_fraction - 1]["value"]
 
+    # Check which fraction is closest to the decimal value
     if distance_to_bigger <= distance_to_smaller:
         fraction = bigger_fraction_obj["fraction"]
         fraction_value = bigger_fraction_obj["value"]
@@ -64,6 +69,7 @@ def how_far():
         fraction_value = simple_fractions[i_of_bigger_fraction - 1]["value"]
         qualifier = "a little more than "
 
+    # Rerender the page with the correct fraction and qualifier
     return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator, fraction_value=fraction_value))
 
 app.run(host="0.0.0.0", port=80)

@@ -1,4 +1,6 @@
 fix bug around not serving without query string parameters
+fix wording for 0% and 100%
+prevent entering numbers less than 0
 style the fraction marker without losing accuracy of positioning
 fix percent-tag behavior when marking high percentages
 write a readme and github description
