@@ -8,8 +8,9 @@ def index():
     queryNumerator = request.args.get('numerator', default=None)
     queryDenominator = request.args.get('denominator', default=None)
     queryPercent = str(round((int(queryNumerator) / int(queryDenominator)) * 100))
+    queryFractionValue = request.args.get('fraction_value', default=None)
     qualifier = request.args.get('qualifier', default="")
-    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent)
+    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue)
 
 @app.route("/how_far", methods=['POST'])
 def how_far():
@@ -43,8 +44,9 @@ def how_far():
     for i, fraction_obj in enumerate(simple_fractions):
         if fraction_obj["value"] == decimal:
             fraction = fraction_obj["fraction"]
+            fraction_value = fraction_obj["value"]
             qualifier = "exactly "
-            return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator))
+            return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator, fraction_value=fraction_value))
         if fraction_obj["value"] > decimal:
             i_of_bigger_fraction = i
             bigger_fraction_obj = fraction_obj
@@ -55,11 +57,13 @@ def how_far():
 
     if distance_to_bigger <= distance_to_smaller:
         fraction = bigger_fraction_obj["fraction"]
+        fraction_value = bigger_fraction_obj["value"]
         qualifier = "almost "
     else:
         fraction = simple_fractions[i_of_bigger_fraction - 1]["fraction"]
+        fraction_value = simple_fractions[i_of_bigger_fraction - 1]["value"]
         qualifier = "a little more than "
 
-    return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator))
+    return redirect(url_for("index", nearest_simple_fraction=fraction, qualifier=qualifier, numerator=numerator, denominator=denominator, fraction_value=fraction_value))
 
 app.run(host="0.0.0.0", port=80)

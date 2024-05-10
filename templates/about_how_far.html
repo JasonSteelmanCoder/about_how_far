@@ -10,6 +10,7 @@
             --numerator: {{ numerator }};
             --denominator: {{ denominator }};
             --percent: {{ percent }};
+            --value: {{ fraction_value }}
         }
     </style>
 </head>
@@ -31,6 +32,10 @@
         <div class="progress-fill">
             <p class="percent-tag">{{percent}}%</p>
         </div>
+    </div>
+    <div class="fraction-marker-div">
+        <div class="fraction-marker">|</div>
+        <p class="fraction-marker">{{nearest_simple_fraction}}</p>
     </div>
 </body>
 </html>

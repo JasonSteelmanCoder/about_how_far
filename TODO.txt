@@ -2,6 +2,6 @@ fix percent-tag behavior when marking high percentages
 add fraction markers to progress bar
 write a readme and github description
 add blurb with explanation/directions
-style the page
+style the fraction marker without losing accuracy of positioning
 make tests
 deploy the page
