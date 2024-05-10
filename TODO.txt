@@ -1,5 +1,5 @@
 fix wording on initial load
-hide fraction marker and percent tag on initial load
+hide percent tag on initial load
 fix percent-tag behavior when marking high percentages
 write a readme and github description
 add blurb with explanation/directions

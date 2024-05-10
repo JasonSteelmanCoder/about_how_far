@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="fraction-marker-div">
-        <div class="fraction-marker">|</div>
+        {{ fraction_marker | safe }}
         <p class="fraction-marker">{{nearest_simple_fraction}}</p>
     </div>
 </body>

@@ -13,7 +13,14 @@ def index():
         queryPercent = 0
     queryFractionValue = request.args.get('fraction_value', default=None)
     qualifier = request.args.get('qualifier', default="")
-    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue)
+
+    # Some elements only render if there are query strings in the URL
+    if queryNumerator:
+        fraction_marker = '<div class="fraction-marker">|</div>'
+    else: 
+        fraction_marker = ""
+
+    return render_template("about_how_far.html", nearest_simple_fraction = nearest_simple_fraction, qualifier = qualifier, numerator=queryNumerator, denominator=queryDenominator, percent=queryPercent, fraction_value=queryFractionValue, fraction_marker = fraction_marker)
 
 @app.route("/how_far", methods=['POST'])
 def how_far():
